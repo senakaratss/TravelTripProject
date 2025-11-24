@@ -1,0 +1,28 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+
+<div class="con-bot">
+    @{int a = 0;}
+    @foreach (var x in Model)
+    {
+        a++;
+        var ss = "left";
+
+        if (a == 3)
+        {
+            ss = "right";
+        }
+        <div class="@ss">
+            <div class="bot-left">
+                <img src="@x.BlogImage" alt="" style="width: 300px; height: 170px; object-fit: cover;"/>
+            </div>
+            <div class="left-text">
+                <h4>@x.Title</h4>
+                <span class="doller">@x.Date.ToShortDateString()</span>
+                <p>@x.Description.Substring(0,@x.Description.Substring(0,80).LastIndexOf(" "))</p>
+                <p><a href="/Blog/BlogDetail/@x.ID"><span class="read">Read More >></span></a></p>
+            </div>
+        </div>
+    }
+    <div class="clear"></div>
+</div>

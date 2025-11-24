@@ -1,0 +1,42 @@
+﻿@using TravelTripProject.Models.Classes
+@model  List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center" style="margin-top:16px;">
+    <h2>Blog List</h2>
+    <a href="/Admin/AddBlog/" class="btn btn-primary">New Blog</a>
+</div>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+            <th>DETAIL</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.Title</td>
+                <td><a href="/Admin/DeleteBlog/@x.ID" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Admin/GetBlog/@x.ID" class="btn btn-warning">Update</a></td>
+                <td><a href="#" class="btn btn-secondary">Detail</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/2.3.5/js/dataTables.min.js"></script>
+<link href="https://cdn.datatables.net/2.3.5/css/dataTables.dataTables.css" rel="stylesheet" />
+<script>
+    $('#tbl1').DataTable();
+</script>

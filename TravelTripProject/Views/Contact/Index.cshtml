@@ -1,0 +1,112 @@
+﻿@model TravelTripProject.Models.Classes.Contact
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE HTML>
+<html>
+<body>
+    <div class="contact">
+        <div class="wrap">
+            <div class="contact-top">
+                <h3>Get in Touch!</h3>
+                <p>
+                    I’d love to hear from you. Whether you have questions about my travels, want tips for your next adventure, or just want to say hi, feel free to reach out!
+                    You can contact me via email, social media, or through the form below. I’ll get back to you as soon as possible.
+                </p>
+            </div>
+
+            @using (Html.BeginForm("AddContact", "Contact", FormMethod.Post, new { @class = "cmxform", id = "contactForm" }))
+            {
+                <div class="form">
+
+                    @Html.LabelFor(x => x.Name)
+                    @Html.TextBoxFor(x => x.Name,
+                        new
+                        {
+                            @class = "textbox",
+                            placeholder = "Name:",
+
+                        })
+                    <div></div>
+
+                    <div>
+                        @Html.LabelFor(x => x.Email)
+                        @Html.TextBoxFor(x => x.Email,
+                            new
+                            {
+                                @class = "textbox",
+                                placeholder = "Email:",
+
+                            })
+                    </div>
+                    <div>
+                        @Html.LabelFor(x => x.Subject)
+                        @Html.TextBoxFor(x => x.Subject,
+                            new
+                            {
+                                @class = "textbox",
+                                placeholder = "Subject:",
+
+                            })
+                    </div>
+                    <div>
+                        <p>
+                            <button type="submit" class="read">Submit</button>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form1">
+                    <div>
+                        @Html.LabelFor(x => x.Message)
+
+                        @Html.TextAreaFor(x => x.Message,
+                            new
+                            {
+                                Placeholder = "Message:"
+                            })
+                    </div>
+                </div>
+            }
+
+
+            <div class="clear"></div>
+            <div class="contact-bottom">
+                <div class="contact-left">
+                    <div class="contact-add">
+                        <h3>Social Media</h3>
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <a href="https://www.linkedin.com/in/sena-karataş" target="_blank">
+                                    <i class="fab fa-linkedin"></i> Go To My LinkedIn
+                                </a>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <a href="https://github.com/senakaratss" target="_blank">
+                                    <i class="fab fa-github"></i> Go To My GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe width="580" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Rashelle+Way,+San+Ramon,+CA,+United+States&amp;aq=0&amp;oq=rash&amp;sll=44.308127,-111.75293&amp;sspn=22.280521,53.569336&amp;ie=UTF8&amp;hq=&amp;hnear=Rashelle+Way,+San+Ramon,+Contra+Costa,+California+94582,+United+States&amp;ll=37.768294,-121.922369&amp;spn=0.001503,0.00327&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br><small><a href="http://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Rashelle+Way,+San+Ramon,+CA,+United+States&amp;aq=0&amp;oq=rash&amp;sll=44.308127,-111.75293&amp;sspn=22.280521,53.569336&amp;ie=UTF8&amp;hq=&amp;hnear=Rashelle+Way,+San+Ramon,+Contra+Costa,+California+94582,+United+States&amp;ll=37.768294,-121.922369&amp;spn=0.001503,0.00327&amp;t=m&amp;z=14&amp;iwloc=A" style="color: #555;text-align:left">View Larger Map</a></small>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h2 style="margin-left:16px">Travel Map</h2>
+<p style="margin-left:16px; font-style: italic; color: #555;">
+    I hope one day every corner of this map will be filled with my adventures!
+</p>
+<br/>
+
+<!-- Harita alanı -->
+<div id="map" style="height: 600px"></div>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- MarkerCluster CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- MarkerCluster JS -->
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+<script>
+    // Harita başlat
+    var map = L.map('map').setView([20, 0], 2); // Dünya görünümü
+
+    // OpenStreetMap katmanı
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+    }).addTo(map);
+
+    // MarkerCluster group oluştur
+    var markers = L.markerClusterGroup();
+
+    // Blogları JS'e aktar
+    var blogs = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    blogs.forEach(function(blog){
+        if(blog.Latitude != null && blog.Longitude != null){
+            var marker = L.marker([blog.Latitude, blog.Longitude])
+                          .bindPopup('<a href="/Blog/BlogDetail/' + blog.ID + '">' + blog.Title + '</a>');
+            markers.addLayer(marker);
+        }
+    });
+
+    // Clusterları haritaya ekle
+    map.addLayer(markers);
+</script>
+
+
+

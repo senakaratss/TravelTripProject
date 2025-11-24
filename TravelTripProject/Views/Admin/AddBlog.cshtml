@@ -1,0 +1,44 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "AddBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="margin-top:16px">Add New Blog</h2>
+<br />
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        @Html.LabelFor(x => x.Title)
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", placeholder = "Enter Blog Title" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Date)
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control", type = "date" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.BlogImage)
+        <input type="file" name="BlogImageFile" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description)
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows = 15 })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Latitude)
+        @Html.TextBoxFor(x => x.Latitude, new { @class = "form-control", type = "number" })
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(x => x.Longitude)
+        @Html.TextBoxFor(x => x.Longitude, new { @class = "form-control", type = "number"})
+    </div>
+    <br />
+    <button class="btn btn-primary">Add Blog</button>
+</form>
+
+

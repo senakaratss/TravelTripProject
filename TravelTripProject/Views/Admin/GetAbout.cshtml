@@ -1,0 +1,29 @@
+﻿@model TravelTripProject.Models.Classes.About
+@{
+    ViewBag.Title = "GetAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="margin-top:16px">Update About</h2>
+<br/>
+@using (Html.BeginForm("UpdateAbout", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+
+    @Html.Label("Current Image")
+    <br />
+    <img src="@Model.ImageUrl" style="width:150px;height:auto;margin-bottom:10px;" />
+    <br />
+
+    @Html.LabelFor(x => x.ImageUrl, "Upload New Image")
+    <input type="file" name="ImageFile" class="form-control" />
+    <br />
+    @Html.LabelFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", rows = 15 })
+    <br />
+    <button class="btn btn-primary">Update About</button>
+</div>
+}

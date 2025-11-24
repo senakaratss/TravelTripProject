@@ -1,0 +1,30 @@
+﻿@using TravelTripProject.Models.Classes;
+@model List<About>
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="margin-top:16px">About</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Image URL</th>
+            <th>Description</th>
+            <th>Update</th>
+  
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model) { 
+        <tr>
+            <td>@x.ID</td>
+            <td> <img src="@x.ImageUrl" style="width:100px;height:auto;" /></td>
+            <td>@x.Description</td>
+            <td><a href="/Admin/GetAbout/@x.ID" class="btn btn-warning">Update</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

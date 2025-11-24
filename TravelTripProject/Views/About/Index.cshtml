@@ -1,0 +1,30 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>About</h3>
+            @foreach (var x in Model)
+            {
+                <img src="@x.ImageUrl" alt="" style="width: 1000px; height: 470px;" />
+                <p class="description">@x.Description</p>
+
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .description {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* modern font */
+        font-size: 16px; /* okunaklı boyut */
+        line-height: 1.6; /* satır yüksekliği */
+        color: #333; /* koyu gri yazı */
+        margin-bottom: 20px; /* alt boşluk */
+    }
+</style>
