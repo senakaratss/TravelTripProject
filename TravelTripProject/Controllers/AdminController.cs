@@ -14,7 +14,6 @@ namespace TravelTripProject.Controllers
     {
         // GET: Admin
         Context c = new Context();
-        [Authorize]
         public ActionResult Index()
         {
             var values = c.Blogs.ToList();

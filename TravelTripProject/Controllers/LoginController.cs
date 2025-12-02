@@ -8,6 +8,7 @@ using TravelTripProject.Models.Classes;
 
 namespace TravelTripProject.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login

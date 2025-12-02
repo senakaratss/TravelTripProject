@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TravelTripProject.Models.Classes;
 namespace TravelTripProject.Controllers
 {
+    [AllowAnonymous]
     public class AboutController : Controller
     {
         // GET: About
